@@ -680,16 +680,50 @@ ul li {
     border-radius: 10px;
     min-height: 80px;
     font-size: var(--text-size);
+
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Uses your body/parent text color instead of blue */
+    width: 100%;           /* Ensures it fills the grid column width */
+  }
+
+  .grid-cell:hover{
+    background-color: var(--accent);
+    color: var(--uicolorlight);
+    border: none;
+  }
+
+  .grid-cell:hover .icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .invert-color {
+    background-color: var(--accent);
+    color: var(--uicolorlight);
+    border: none;
+  }
+
+  .invert-color .icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .invert-color:hover{
+    background: rgba(0,0,0,0);
+    border: 2px solid var(--uicolorlight);
+    color: var(--accent)
+  }
+
+  .invert-color:hover .icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(19%) saturate(1354%) hue-rotate(314deg) brightness(96%) contrast(90%);
   }
 
   .grid-centered {
-    grid-column: 1 / -1;    
+    grid-column: 1 / -1;  
   }
 
   .grid-cell.vertical {
-  flex-direction: column;
-  text-align: center;
-}
+    flex-direction: column;
+    text-align: center;
+  }
 
   .centered {
     text-align: center;
@@ -702,3 +736,21 @@ ul li {
     filter: brightness(0) saturate(100%) invert(31%) sepia(19%) saturate(1354%) hue-rotate(314deg) brightness(96%) contrast(90%);
     padding-right: 5px;
   }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .pc-only {
+    display: flex;
+  }
+
+  @media (orientation: portrait) {
+    .mobile-only {
+      display: flex;
+    }
+    .pc-only {
+      display: none;
+    }
+  }
+
