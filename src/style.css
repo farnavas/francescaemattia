@@ -37,8 +37,8 @@ h2 {
 }
 
 .spaced-heading {
-  margin-bottom: 5%;
-  margin-top: -5%;
+  margin-bottom: 8vh;
+  margin-top: -4%;
 }
 
 p {
@@ -67,14 +67,14 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 
 /* --- 4. The Card Wrapper (Anchor for flowers) --- */
 .card-wrapper {
   position: relative;
-  width: min(90vw, 800px); 
+  width: min(100vw, 800px); 
   aspect-ratio: 5 / 7;
 }
 
@@ -93,7 +93,12 @@ a {
 @media (max-width: 768px) {
   .bigger {
     height: auto; 
-    min-height: 220%;
+    min-height: 175%;
+  }
+
+  .biggest {
+    height: auto; 
+    min-height: 210%;
   }
 }
 
@@ -170,7 +175,7 @@ a {
 /* --- Rest of your styles (Typography, Moon, Inner Border) --- */
 .inner-border {
   position: absolute;
-  inset: 30px;
+  inset: 20px 10px;
   border: 4px solid var(--uicolorlight);
   border-radius: 38vw 38vw 0 0;
   z-index: 1;
@@ -832,11 +837,11 @@ ul li {
 
   .heart-list li {
     font-size: var(--text-size);
-    margin: 0;
+    margin: 10px 0;
   }
 
   .heart-list ::marker {
-    font-size: 30px;
+    font-size: 1em;
   }
 
 
