@@ -1,404 +1,425 @@
-    /* --- 1. Global Reset (Critical for padding math) --- */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-
-    :root {
-      --background: rgb(246, 242, 239);
-      --accent: #a84b3e;
-      --uicolorlight: #dcd3c9;
-      --uicolor: #c4b8ab;
-      
-      /* Streamlined font sizes */
-      --frontpage-heading-size: clamp(3rem, 8vw, 4.5em);
-      --heading-size: clamp(2rem, 7vw, 4em);
-      --text-size: clamp(1.2rem, 4.5vw, 1.5em);
-      --subheading-size: clamp(1.5rem, 5.5vw, 3em);
-    }
-
-
-    body {
-      margin: 0;
-      font-family: "Tangerine", cursive;
-      font-weight: 400;
-      font-style: normal;
-      background-color: var(--background);
-      color: var(--accent);
-    }
-
-    h2 {
-      font-size: var(--subheading-size);
-      margin: 0;
-      font-weight: normal;
-    }
-
-    .spaced-heading {
-      margin-bottom: 10%;
-    }
-
-    p {
-      font-size: var(--text-size);
-      margin: 0;
-      line-height: 150%;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-    }
-
-
-    /* --- 2. The Overflow Stopper --- */
-    .page-overflow-wrap {
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-
-    /* --- 3. The Centering Container --- */
-    .centering-container {
-      min-height: 100dvh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-
-    /* --- 4. The Card Wrapper (Anchor for flowers) --- */
-    .card-wrapper {
-      position: relative;
-      width: min(90vw, 800px); 
-      aspect-ratio: 5 / 7;
-    }
-
-
-    /* --- 5. The Card Itself --- */
-    .card {
-      position: relative;
-      width: 100%;
-      height: 120%;
-      background: var(--background);
-      padding: 40px;
-      overflow: hidden;
-    }
-
-
-    @media (orientation: portrait) {
-     .bigger {
-        height: auto; 
-        min-height: 220%;
-     }
-    }
-
-
-    /* --- Flower Positioning (Relative to .card-wrapper) --- */
-    .floral {
-      position: absolute;
-      z-index: 10;
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-    }
-
-
-    .floral-top-left {
-      top: -17%;
-      left: -20%;
-      width: 70%;
-      height: 70%;
-      background-image: url('../img/flowers4.png');
-      background-position: top left;
-      transform: rotate(180deg);
-      
-      -webkit-transform: scale(1, -1) rotate(-37deg);
-      -moz-transform: scale(1, -1) rotate(-37deg);
-      -o-transform: scale(1, -1) rotate(-37deg);
-      transform: scale(1, -1) rotate(-37deg);
-    }
-
-
-    .floral-top-center {
-      top: -10%;
-      left: 5%;
-      width: 90%;
-      height: 70%;
-      background-image: url('../img/arc.png');
-      background-position: top left;
-    }
-
-
-    .floral-bottom-right {
-      bottom: -15%;
-      right: -34%;
-      width: 75%;
-      height: 75%;
-      background-image: url('../img/flowers2.png');
-      background-position: bottom right;
-    }
-
-    .bottom-right-alt {
-      background-image: url('../img/arcalt.png');
-      bottom: -12%;
-      right: -34%;
-      width: 85%;
-      height: 45%;
-      
-      -webkit-transform: rotate(126deg);
-      -moz-transform: rotate(126deg);
-      -o-transform: rotate(126deg);
-      transform: rotate(126deg);
-    }
-
-    @media (orientation: portrait) {
-      .floral-top-center{
-        top: -4%;
-      }
-
-      .bottom-right-alt {
-        bottom: -20%;
-        right: -55%;
-      }
-    }
-
-    /* --- Rest of your styles (Typography, Moon, Inner Border) --- */
-    .inner-border {
-      position: absolute;
-      inset: 30px;
-      border: 4px solid var(--uicolorlight);
-      border-radius: 38vw 38vw 0 0;
-      z-index: 1;
-      pointer-events: none;
-      background-image: url("../img/textured-paper.png");
-      background-color: rgba(255, 251, 247, 0.55);
-      background-blend-mode: lighten;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    @media (orientation: portrait) {
-      .inner-border {
-        border-width: 3px;
-      }
-    }
-
-
-    .text-content {
-      position: relative;
-      z-index: 12;
-      top: 34%;
-      text-align: center;
-      color: var(--accent);
-      padding: 0 15%;
-    }
-
-
-    @media (orientation: portrait) {
-      .text-content {
-        top: 23vh;
-        padding: 0 10%;
-      }
-    }
-
-
-    .names {
-      font-family: "Love Light", cursive;
-      font-weight: 400;
-      font-style: normal;
-      font-size: var(--frontpage-heading-size);
-      line-height: 1.1;
-      margin: 0;
-      text-align: right;
-    }
-    .names span { 
-      font-size: 0.6em; 
-      display: block;
-    }
-
-    .header-names {
-      font-family: "Love Light", cursive;
-      font-weight: 400;
-      font-style: normal;
-      font-size: var(--heading-size);
-      line-height: 1;
-      margin: 0;
-      text-align: center;
-      color: var(--accent);
-      position: absolute;
-      top: 20%;
-      z-index: 4;
-      left: 27%;
-    }
-
-
-    @media (orientation: portrait) {
-      .header-names {
-        top: 13%;
-        left: 25%;
-      }
-    }
-
-    #date {
-      font-size: var(--subheading-size);
-      line-height: 1;
-      margin: 0;
-      text-align: center;
-      color: var(--accent);
-      position: absolute;
-      top: 30%;
-      z-index: 4;
-      left: 35%;  
-
-    }
-
-    @media (orientation: portrait) {
-      #date {
-        top: 23%;
-      }
-    }
-
-    .back {
-      position: absolute;
-      bottom: 8%;
-      left: 15%;
-      z-index: 5;
-      font-size: var(--text-size);
-    }
-
-
-    .info {
-      margin: 0;
-      padding-top: 10%;
-      padding-bottom: 5%;
-      text-align: left;
-      font-size: var(--text-size);
-    }
-
-
-    @media (orientation: portrait) {
-      .info {
-        padding-top: 5%;
-      }
-    }
-
-
-    .buttons {
-      margin: 0;
-      padding-top: 10%;
-      text-align: left;
-      font-size: var(--text-size);
-    }
-
-
-    button {
-      border: 3px solid var(--accent);
-      background: var(--background);
-      padding: .7rem 1rem;
-      border-radius: 999px;
-      text-decoration:none;
-      font-weight: 600;
-      letter-spacing: .03em;
-      transition: transform .12s ease, background .12s ease;
-    }
-
-
-    button:hover:after {
-      opacity: 1;
-      right: 10px;
-    }
-
-
-    button:after {
-      content: "\00BB";
-      position: absolute;
-      opacity: 0;
-      font-size: 20px;
-      line-height: 40px;
-      top: 0;
-      right: -20px;
-      transition: 0.4s;
-    }
-    
-    
-    
-    @media (orientation: portrait) {
-      .buttons {
-        padding-top: 10%;
-      }
-    }
-
-
-
-  /* --- Noisy Gold Crescent Moon --- */
-    .crescent-moon {
-      position: absolute;
-      top: -95%;
-      left: 22%;
-      width: 10vw;
-      height: 10vw;
-      z-index: 4;
-    }
-
-    .homepage-moon {
-      top: 12%;
-      left: 43%;
-    }
-
-    .loader {
-      top: 12%;
-      transform: translateX(-40%);
-    }
-
-    @media (orientation: portrait) {
-      .crescent-moon {
-        width: 20vw;
-        height: 20vw;
-      }
-    }
-
-
-    .crescent-moon::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-
-
-      background:
-      linear-gradient(160deg, rgb(0 0 0 / 20%), rgb(64 38 0 / 20%)), 
-      url("../img/noise.svg"), 
-      radial-gradient(circle at 20% 75%, #DDCD9A 0%, #ba9e68 100%);
-
-
-      background-size: auto, 140px 140px, auto;
-      background-repeat: repeat, repeat, no-repeat;
-
-
-      filter: contrast(170%) brightness(1000%);
-
-
-      -webkit-mask: radial-gradient(circle at 35% 50%, transparent 55%, black 55.5%);
-      mask: radial-gradient(circle at 35% 50%, transparent 55%, black 55.5%);
-
-
-      transform: rotate(15deg);
-    }
-
-
-    @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-      .crescent-moon::after {
-        filter: contrast(200%) brightness(105%);
-      }
-    }
-
-
-
-
-
-
-
+/* --- 1. Global Reset (Critical for padding math) --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+:root {
+  --background: rgb(246, 242, 239);
+  --accent: #a84b3e;
+  --uicolorlight: #dcd3c9;
+  --uicolor: #c4b8ab;
+  
+  /* Streamlined font sizes */
+  --frontpage-heading-size: clamp(2rem, 8vw, 4.5em);
+  --heading-size: clamp(1.5rem, 7vw, 4em);
+  --text-size: clamp(1.2rem, 4.5vw, 1.5em);
+  --subheading-size: clamp(1.5rem, 6.5vw, 3.5em);
+
+  
+  --moon-size: clamp(70px, 10vw, 200px);
+}
+
+
+body {
+  margin: 0;
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--background);
+  color: var(--accent);
+}
+
+h2 {
+  font-size: var(--subheading-size);
+  margin: 0;
+  font-weight: normal;
+}
+
+.spaced-heading {
+  margin-bottom: 5%;
+  margin-top: -5%;
+}
+
+p {
+  font-size: var(--text-size);
+  margin: 0;
+  line-height: 150%;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+
+/* --- 2. The Overflow Stopper --- */
+.page-overflow-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* --- 3. The Centering Container --- */
+.centering-container {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+/* --- 4. The Card Wrapper (Anchor for flowers) --- */
+.card-wrapper {
+  position: relative;
+  width: min(90vw, 800px); 
+  aspect-ratio: 5 / 7;
+}
+
+
+/* --- 5. The Card Itself --- */
+.card {
+  position: relative;
+  width: 100%;
+  height: 120%;
+  background: var(--background);
+  padding: 40px;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .bigger {
+    height: auto; 
+    min-height: 220%;
+  }
+}
+
+
+/* --- Flower Positioning (Relative to .card-wrapper) --- */
+.floral {
+  position: absolute;
+  z-index: 10;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+
+.floral-top-left {
+  top: -17%;
+  left: -20%;
+  width: 70%;
+  height: 70%;
+  background-image: url('../img/flowers4.png');
+  background-position: top left;
+  transform: rotate(180deg);
+  
+  -webkit-transform: scale(1, -1) rotate(-37deg);
+  -moz-transform: scale(1, -1) rotate(-37deg);
+  -o-transform: scale(1, -1) rotate(-37deg);
+  transform: scale(1, -1) rotate(-37deg);
+}
+
+
+.floral-top-center {
+  top: -10%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  background-image: url('../img/arc.png');
+  background-position: top left;
+}
+
+
+.floral-bottom-right {
+  bottom: -15%;
+  right: -34%;
+  width: 75%;
+  height: 75%;
+  background-image: url('../img/flowers2.png');
+  background-position: bottom right;
+}
+
+.bottom-right-alt {
+  background-image: url('../img/arcalt.png');
+  bottom: -12%;
+  right: -34%;
+  width: 85%;
+  height: 45%;
+  
+  -webkit-transform: rotate(126deg);
+  -moz-transform: rotate(126deg);
+  -o-transform: rotate(126deg);
+  transform: rotate(126deg);
+}
+
+@media (max-width: 768px) {
+  .floral-top-center{
+    top: -4%;
+  }
+
+  .bottom-right-alt {
+    bottom: -20%;
+    right: -55%;
+  }
+}
+
+/* --- Rest of your styles (Typography, Moon, Inner Border) --- */
+.inner-border {
+  position: absolute;
+  inset: 30px;
+  border: 4px solid var(--uicolorlight);
+  border-radius: 38vw 38vw 0 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("../img/textured-paper.png");
+  background-color: rgba(255, 251, 247, 0.55);
+  background-blend-mode: lighten;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .inner-border {
+    border-width: 3px;
+  }
+}
+
+
+.text-content {
+  position: relative;
+  z-index: 12;
+  top: 30%;
+  text-align: center;
+  color: var(--accent);
+  padding: 0 10%;
+}
+
+.homepage-content {
+  padding: 0 15%;
+}
+
+
+@media (max-width: 768px) {
+  .text-content {
+    top: 23vh;
+    padding: 0 10%;
+  }
+}
+
+
+.header-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    top: 20vh;
+  }
+}
+
+.names {
+  font-family: "Love Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--frontpage-heading-size);
+  line-height: 1.1;
+  margin: 0;
+  text-align: right;
+}
+.names span { 
+  font-size: 0.6em; 
+  display: block;
+}
+
+.header-names {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;            /* adjust spacing between the two names */
+  font-family: "Love Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--heading-size);
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  color: var(--accent);
+  z-index: 4;
+}
+
+/* 
+@media (max-width: 768px) {
+  .header-names {
+    top: 13%;
+    left: 25%;
+  }
+} */
+
+#date {
+  font-size: var(--subheading-size);
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  color: var(--accent);
+  position: absolute;
+  top: 30%;
+  z-index: 4;
+  left: 35%;  
+
+}
+
+@media (max-width: 768px) {
+  #date {
+    top: 23%;
+  }
+}
+
+.back {
+  position: absolute;
+  bottom: 8%;
+  left: 15%;
+  z-index: 5;
+  font-size: var(--text-size);
+}
+
+
+.info {
+  margin: 0;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  text-align: left;
+  font-size: var(--text-size);
+}
+
+
+@media (max-width: 768px) {
+  .info {
+    padding-top: 5%;
+  }
+}
+
+
+.buttons {
+  margin: 0;
+  padding-top: 10%;
+  text-align: left;
+  font-size: var(--text-size);
+}
+
+
+button {
+  border: 3px solid var(--accent);
+  background: var(--background);
+  padding: .7rem 1rem;
+  border-radius: 999px;
+  text-decoration:none;
+  font-weight: 600;
+  letter-spacing: .03em;
+  transition: transform .12s ease, background .12s ease;
+}
+
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+
+button:after {
+  content: "\00BB";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  line-height: 40px;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
+
+
+
+@media (max-width: 768px) {
+  .buttons {
+    padding-top: 10%;
+  }
+}
+
+
+
+/* --- Noisy Gold Crescent Moon --- */
+.crescent-moon {
+  position: absolute;
+  width: var(--moon-size);
+  height: var(--moon-size);
+  z-index: 4;
+}
+
+.crescent-moon--between {
+  left: 50%;
+  top: 50%;
+  transform: translate(-75%, -60%);  /* perfectly centered between the two names */
+}
+
+.homepage-moon {
+  top: 12%;
+  left: 35%;
+}
+
+.loader {
+  top: 12%;
+  transform: translateX(-40%);
+}
+
+/* @media (max-width: 768px) {
+  .crescent-moon {
+    width: 20vw;
+    height: 20vw;
+    left: 15%
+  }
+} */
+
+
+.crescent-moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+
+  background:
+  linear-gradient(160deg, rgb(0 0 0 / 20%), rgb(64 38 0 / 20%)), 
+  url("../img/noise.svg"), 
+  radial-gradient(circle at 20% 75%, #DDCD9A 0%, #ba9e68 100%);
+
+
+  background-size: auto, 140px 140px, auto;
+  background-repeat: repeat, repeat, no-repeat;
+
+
+  filter: contrast(170%) brightness(1000%);
+
+
+  -webkit-mask: radial-gradient(circle at 35% 50%, transparent 55%, black 55.5%);
+  mask: radial-gradient(circle at 35% 50%, transparent 55%, black 55.5%);
+
+
+  transform: rotate(15deg);
+}
+
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+  .crescent-moon::after {
+    filter: contrast(200%) brightness(105%);
+  }
+}
 
 
 
@@ -698,17 +719,27 @@ ul li {
   .grid-cell:hover{
     background-color: var(--accent);
     color: var(--uicolorlight);
-    border: none;
+    border: 2px solid var(--accent);
   }
 
   .grid-cell:hover .icon {
     filter: brightness(0) invert(1);
   }
 
+  .grid-smaller {
+    width: 70%;
+    margin: 3% auto;  
+  }
+
+  .grid-cell.vertical {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .invert-color {
     background-color: var(--accent);
     color: var(--uicolorlight);
-    border: none;
+    border: 2px solid var(--accent);
   }
 
   .invert-color .icon {
@@ -739,15 +770,34 @@ ul li {
   }
 
   .icon {
-    height: 50px; 
-    width: auto;  
+    width: 60px; 
+    height: auto;  
     display: block;
-    filter: brightness(0) saturate(100%) invert(31%) sepia(19%) saturate(1354%) hue-rotate(314deg) brightness(96%) contrast(90%);
+    filter: brightness(0) saturate(124%) invert(37%) sepia(20%) saturate(1365%) hue-rotate(320deg) brightness(97%) contrast(95%);
     padding-right: 5px;
+  }
+
+  .inline-icon {
+    display: inline;
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+    border: solid 1px;
+    padding: 10px;
+    margin: 10px;
   }
 
   .centered-img {
     margin: auto;
+    width: 70px;
+    max-width: 50%;
+  }
+
+  .bigger-icon {
+    margin-bottom: 20px;
+    width: 170px;
+    max-width: 95%;
+    height: auto; 
   }
 
   .mobile-only {
@@ -758,7 +808,7 @@ ul li {
     display: flex;
   }
 
-  @media (orientation: portrait) {
+  @media (max-width: 768px) {
     .mobile-only {
       display: flex;
     }
@@ -780,8 +830,13 @@ ul li {
     list-style: "♡";
   }
 
-  .heart-list::marker {
-    font-size: 10px;
+  .heart-list li {
+    font-size: var(--text-size);
+    margin: 0;
+  }
+
+  .heart-list ::marker {
+    font-size: 30px;
   }
 
 
@@ -837,8 +892,9 @@ ul li {
   @media only screen and (max-width: 800px) {
     .timeline {
       margin: 0 auto;
-      position: relative;
-      left: 85px;
+      position: relative;    
+      left: 14%;
+
 
       .timeline-item {
         font-size: 1.1rem;
@@ -860,3 +916,12 @@ ul li {
     }
   }
   /* TIMELINE end */
+
+.normal-text {
+  font-family: Garamond, Georgia, 'Times New Roman', Times, serif;
+  font-size: 50%;
+}
+
+.low-heading {
+  margin-top: 0;
+}
