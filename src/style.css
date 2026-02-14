@@ -89,6 +89,9 @@ a {
   overflow: hidden;
 }
 
+.travel-page {
+  min-height: 130%;
+}
 
 @media (max-width: 768px) {
   .bigger {
@@ -159,6 +162,11 @@ a {
   -moz-transform: rotate(126deg);
   -o-transform: rotate(126deg);
   transform: rotate(126deg);
+}
+
+.travel-right-alt {
+  bottom: -15%;
+  right: -37%;
 }
 
 @media (max-width: 768px) {
@@ -541,9 +549,8 @@ ul li {
 
 .animated-arrow {
   display: inline-block;
-  color: var(--uicolor);
+  color: var(--accent);
   font-size: var(--text-size);
-  text-decoration: none;
   position: relative;
   transition: all 0.2s;
 }
@@ -569,6 +576,7 @@ ul li {
 
 .animated-arrow:hover {
   color: var(--accent);
+  text-decoration: none;
 }
 
 
@@ -927,5 +935,4 @@ ul li {
 
 .low-heading {
   margin-top: 0;
-
 }
