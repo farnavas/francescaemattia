@@ -180,9 +180,7 @@ a {
   border-radius: 45vw 45vw 0 0;
   z-index: 1;
   pointer-events: none;
-  background-image: url("../img/textured-paper.png");
-  background-color: rgba(255, 251, 247, 0.55);
-  background-blend-mode: lighten;
+  background-color: #f3edeb;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
@@ -929,4 +927,5 @@ ul li {
 
 .low-heading {
   margin-top: 0;
+
 }
