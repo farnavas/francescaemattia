@@ -415,7 +415,7 @@ button:after {
   background-repeat: repeat, repeat, no-repeat;
 
 
-  filter: contrast(170%) brightness(1000%);
+  filter: contrast(180%) brightness(1000%);
 
 
   -webkit-mask: radial-gradient(circle at 35% 50%, transparent 55%, black 55.5%);
@@ -935,4 +935,5 @@ ul li {
 
 .low-heading {
   margin-top: 0;
+
 }
