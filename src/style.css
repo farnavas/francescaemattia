@@ -90,7 +90,7 @@ a {
 }
 
 .travel-page {
-  min-height: 180%;
+  min-height: 150%;
 }
 
 @media (max-width: 768px) {
@@ -937,5 +937,6 @@ ul li {
   margin-top: 0;
 
 }
+
 
 
